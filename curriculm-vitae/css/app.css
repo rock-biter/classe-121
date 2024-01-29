@@ -1,0 +1,30 @@
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+.main-header {
+	background-color: #efefef;
+	text-align: center;
+	border-bottom: 2px solid rgb(255, 171, 16);
+}
+
+.avatar {
+	width: 200px;
+	/* height: 300px; */
+}
+
+.section-title {
+	color: rgb(255, 171, 16);
+	font-size: 32px;
+}
+
+.item-title {
+	font-size: 24px;
+	font-style: italic;
+}
+
+footer {
+	border-top: 2px solid rgb(255, 171, 16);
+}
