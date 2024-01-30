@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gmail</title>
+		<link rel="stylesheet" href="./css/app.css" />
+	</head>
+	<body>
+		<header class="main-header">
+			<nav class="container mt-4">
+				<img
+					class="logo"
+					width="100"
+					src="./img/Gmail-Logo.png"
+					alt="Logo Gmail"
+				/>
+				<h1 class="logo-title">Gmail</h1>
+			</nav>
+		</header>
+
+		<main class="main-content">
+			<!-- search bar -->
+			<section>
+				<div class="container">
+					<input type="text" />
+					<input type="submit" value="VAI!" />
+				</div>
+
+				<div class="container unread">
+					<h2>You have <span class="badge">30</span> unread</h2>
+				</div>
+			</section>
+
+			<!-- elenco della mail -->
+			<section>
+				<div class="container">
+					<ul class="emails">
+						<li class="message">
+							<input type="checkbox" /> &star; Oggetto della mail
+							<span> - testo della mail </span>
+						</li>
+						<li class="message">
+							<input type="checkbox" /> &star; Oggetto della mail
+							<span> - testo della mail </span>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<p>GMail <em>powered by Giangi</em></p>
+			</div>
+		</footer>
+	</body>
+</html>

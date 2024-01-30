@@ -1,0 +1,56 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+/* a */
+/* img */
+
+body {
+	background-color: black;
+	color: white;
+}
+
+.main-header {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.main-content {
+	padding: 32px 0;
+}
+
+.unread {
+	padding: 24px 0;
+}
+
+.container {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.logo {
+	vertical-align: middle;
+}
+
+.logo-title {
+	display: inline-block;
+}
+
+.badge {
+	background-color: gold;
+	width: 42px;
+	height: 42px;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+}
