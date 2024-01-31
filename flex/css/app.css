@@ -1,0 +1,49 @@
+body {
+	padding: 48px 0;
+}
+
+.section {
+	padding: 24px;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.flex {
+	display: flex;
+}
+
+#ex-2 .flex {
+	justify-content: space-between;
+}
+
+#ex-2 .logo {
+	height: 50px;
+}
+
+#ex-3 .item {
+	min-width: 200px;
+}
+
+#ex-3 .flex {
+	flex-wrap: wrap;
+}
+
+/* DEBUG */
+.debug .flex {
+	background-color: #9a5db5;
+	border-radius: 6px;
+	padding: 12px;
+}
+
+.debug .item {
+	background-color: #f7941f;
+	border-radius: 6px;
+	padding: 12px;
+	color: white;
+	font-size: 24px;
+	font-weight: 700;
+	text-align: center;
+}
