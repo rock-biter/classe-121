@@ -1,0 +1,140 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+button {
+	border: none;
+	background-color: transparent;
+}
+
+body {
+	background-color: #f6f8f9;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*
+LAYOUT
+*/
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+/* Main header */
+
+.main-header {
+	padding: 16px 32px;
+	background-color: white;
+}
+
+.logo {
+	font-size: 32px;
+	font-weight: 700;
+}
+
+/* .logo img,
+.logo span {
+	vertical-align: middle;
+} */
+
+.logo * {
+	vertical-align: middle;
+}
+
+/* .logo span {
+	vertical-align: middle;
+} */
+
+/* main content */
+.main-content {
+	padding: 48px 24px;
+}
+
+/* card */
+.card {
+	background-color: white;
+	/* padding: 20px; */
+}
+
+.card__header,
+.card__body {
+	padding-left: 28px;
+	padding-right: 28px;
+}
+
+.card__header {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-bottom: 2px solid #f6f8f9;
+}
+
+.card__body {
+	padding-top: 28px;
+	padding-bottom: 28px;
+}
+
+/* task list */
+.icon {
+	border: 1px solid currentColor;
+	border-radius: 50%;
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+	line-height: 22px;
+	margin-right: 8px;
+}
+
+.icon.icon--cross {
+	color: red;
+}
+
+.icon.icon--check {
+	color: green;
+}
+
+.badge {
+	color: black;
+	background-color: #f6f8f9;
+	line-height: 24px;
+	padding: 0px 12px;
+	border-radius: 8px;
+	font-size: 12px;
+	font-weight: 700;
+	display: inline-block;
+	margin-left: 8px;
+}
+
+.badge.badge--orange {
+	background-color: orange;
+}
+
+.badge.badge.badge--violet {
+	background-color: blueviolet;
+	color: white;
+}
+
+.tasks__item {
+	margin-bottom: 8px;
+}
+
+.tasks__item * {
+	vertical-align: middle;
+}
+
+.sections__item {
+	margin-bottom: 22px;
+}
