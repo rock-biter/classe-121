@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	padding: 48px 0;
 }
@@ -29,6 +33,53 @@ body {
 
 #ex-3 .flex {
 	flex-wrap: wrap;
+}
+
+#ex-4 .flex {
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+#ex-4 .item {
+	min-width: 200px;
+}
+
+#ex-5 .flex {
+	flex-wrap: wrap;
+	gap: 5%;
+}
+
+#ex-5 .item {
+	/* flex-basis: 30%; */
+	width: 30%;
+}
+
+#ex-6 .flex {
+	gap: 20px;
+}
+
+.grow-1 {
+	flex-grow: 1;
+}
+
+.grow-2 {
+	flex-grow: 2;
+}
+
+#ex-7 .flex {
+	gap: 20px;
+}
+
+#ex-7 .item {
+	flex-basis: 250px;
+}
+
+.shrink-0 {
+	flex-shrink: 0;
+}
+
+.shrink-3 {
+	flex-shrink: 3;
 }
 
 /* DEBUG */
