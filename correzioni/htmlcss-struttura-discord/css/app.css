@@ -1,0 +1,127 @@
+/* RESET */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+menu,
+ul,
+ol {
+	list-style: none;
+}
+
+/* LAYOUT */
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.container-sm {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.col-80 {
+	width: 80%;
+}
+
+.col-33 {
+	width: calc(100% / 3);
+}
+
+.col-66 {
+	width: calc(2 * 100% / 3);
+}
+
+.col-1-6 {
+	width: calc(100% / 6);
+}
+
+.col-25 {
+	width: calc(100% / 4);
+}
+
+/* utilities */
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.row-reverse {
+	flex-direction: row-reverse;
+}
+
+.bg-gray {
+	background-color: rgb(194, 194, 194);
+}
+
+/* PAGE HEADER */
+.nav .row {
+	justify-content: space-between;
+}
+
+.nav .main-menu {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+/* DEBUG */
+.debug .page-header {
+	background-color: aquamarine;
+	padding: 20px 0px;
+}
+
+.debug .page-footer {
+	background-color: #333;
+	padding: 20px 0px;
+	color: white;
+}
+
+.debug .row > * {
+	border: 1px solid cornflowerblue;
+	padding: 10px;
+}
+
+.debug section {
+	padding: 32px 0;
+}
+
+.debug .container,
+.debug .container-sm {
+	border: 1px solid red;
+	padding: 4px;
+}
+
+.debug .hero {
+	background-color: #00038b;
+	color: white;
+}
+
+.debug .hero .container-sm {
+	min-height: 400px;
+}
+
+.debug main .row > * {
+	min-height: 200px;
+}
