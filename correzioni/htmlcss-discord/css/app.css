@@ -118,9 +118,13 @@ body {
 
 /* PAGE HEADER */
 .page-header {
-	background-color: #255ee9;
+	/* background-color: #255ee9; */
+	position: absolute;
 	color: white;
 	padding: 24px 0;
+	top: 0;
+	left: 0;
+	right: 0; /* width: 100%; */
 }
 
 .nav .row {
@@ -267,10 +271,27 @@ body {
 	padding: 32px 0;
 }
 
-.debug .container,
-.debug .container-sm {
+/* .debug section .container,
+.debug section .container-sm,
+.debug section .container-lg,
+.debug section .container-xl {
 	border: 1px solid red;
 	padding: 4px;
+} */
+
+.debug section :is(.container, .container-sm, .container-lg, .container-xl) {
+	border: 1px solid red;
+	padding: 4px;
+}
+
+div > a,
+h1 > a,
+p > a {
+	color: violet;
+}
+
+:is(div, h1, p) > a {
+	color: violet;
 }
 
 .debug .hero {
