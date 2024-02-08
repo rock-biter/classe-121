@@ -1,0 +1,105 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+}
+
+#app {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	color: white;
+}
+
+.app__body {
+	flex-grow: 1;
+	background-color: #131923;
+	display: flex;
+}
+
+.app__menu {
+	width: 280px;
+	flex-shrink: 0;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+}
+
+.app__content {
+	flex-grow: 1;
+}
+
+.content,
+.banner {
+	padding: 0 30px;
+}
+
+.banner {
+	padding-top: 18px;
+	padding-bottom: 18px;
+	background-color: #00000022;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.banner button {
+	background-color: white;
+	border-radius: 999px;
+	padding: 0 20px;
+	line-height: 40px;
+}
+
+.content {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.app__bottom-bar {
+	background-color: #282828;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	align-items: center;
+}
+
+.app__bottom-bar ul {
+	display: flex;
+	gap: 20px;
+}
+
+/* DEBUG */
+/* .debug #app > * {
+	border: 2px solid red;
+	padding: 20px;
+} */
+
+/* .debug .app__body > * {
+	border: 2px solid red;
+	padding: 20px;
+} */
+
+.profile {
+	margin-top: auto;
+}
+
+.app__menu > * {
+	/* border: 2px solid; */
+	padding: 20px;
+}
+
+ul i {
+	color: red;
+	font-size: 30px;
+}
