@@ -69,6 +69,11 @@ body {
 	text-align: center;
 	display: inline-block;
 	padding: 0 20px;
+	transition: background-color 300ms ease-in;
+}
+
+.button:hover {
+	background-color: #0047ba;
 }
 
 /* HEADER */
@@ -125,6 +130,15 @@ body {
 	flex-direction: column;
 	gap: 24px;
 	align-items: flex-start;
+}
+
+.hero__thumbnail {
+	/* filter: blur(20px); */
+	transition: all 500ms;
+}
+
+.hero__thumbnail:hover {
+	/* filter: blur(0px); */
 }
 
 .hero__thumbnail img {
@@ -239,4 +253,53 @@ body {
 
 .card.plan .plan__subtitle {
 	margin-bottom: 40px;
+}
+
+/* animation */
+.bounce {
+	animation-name: bounce;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	/* animation-timing-function: linear; */
+	/* animation-timing-function: cubic-bezier(1, 0.48, 0.59, 1.26); */
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0px);
+	}
+	25% {
+		transform: translateY(-50px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.slide-in {
+	animation-name: slide-in;
+	animation-duration: 1.5s;
+}
+
+@keyframes slide-in {
+	0% {
+		opacity: 0;
+		transform: translateX(200px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* modal */
+.modal {
+	position: fixed;
+	width: 250px;
+	height: 100px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 999;
+	background-color: rgba(255, 255, 255, 0.5);
 }
