@@ -55,6 +55,10 @@ body {
 	width: calc(8 * 100% / 12);
 }
 
+.col-12 {
+	width: calc(12 * 100% / 12);
+}
+
 /* COMPONENTS */
 
 .button {
@@ -126,4 +130,113 @@ body {
 .hero__thumbnail img {
 	display: block;
 	width: 100%;
+}
+
+/* plans */
+
+.plans {
+	padding: 100px 0;
+}
+
+.plans .container-sm + .container-sm {
+	margin-top: 36px;
+}
+
+.card.plan {
+	border: 1px solid #bcbcbc;
+	height: 100%;
+}
+
+.plans .row:not(.no-gutter) > * {
+	padding: 0 25px;
+}
+
+.plans .row {
+	row-gap: 50px;
+}
+
+.card.plan .card__header {
+	text-align: center;
+	border-bottom: 1px solid #bcbcbc;
+	line-height: 40px;
+}
+
+.card.plan .card__header,
+.card.plan .card__body {
+	padding-left: 28px;
+	padding-right: 28px;
+}
+
+.card.plan .card__body {
+	padding-top: 32px;
+	padding-bottom: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.card.plan .features {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.card.plan .features li {
+	display: flex;
+	gap: 12px;
+	font-size: 14px;
+}
+
+.card.plan .features.icon--colored i {
+	color: #0061ff;
+}
+
+.card.plan .features li > i {
+	font-size: 16px;
+}
+
+.card.plan .button {
+	width: 100%;
+	/* margin-bottom: 24px; */
+}
+
+.card.plan .list-title {
+	margin-bottom: 20px;
+}
+
+/* .card__cta::before {
+	content: 'ciao';
+	display: block;
+	background-color: aqua;
+	padding: 12px;
+	color: white;
+	border-radius: 30px;
+} */
+
+.card.plan .card__cta {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.card.plan .card__cta::after {
+	content: '';
+	width: 50px;
+	height: 1px;
+	background-color: #bcbcbc;
+	display: block;
+	/* margin-top: 30px; */
+}
+
+.card.plan.card--landscape .row {
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card.plan.card--landscape .card__body {
+	display: block;
+}
+
+.card.plan .plan__subtitle {
+	margin-bottom: 40px;
 }
