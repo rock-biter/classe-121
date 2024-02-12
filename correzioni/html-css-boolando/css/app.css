@@ -169,6 +169,14 @@ body {
 	transition: opacity 300ms ease-in-out;
 }
 
+.card__header .product__thumb {
+	/* height: 150px; */
+	aspect-ratio: 1/1;
+	width: 100%;
+	object-fit: cover;
+	object-position: center center;
+}
+
 .card:hover .product__thumb.thumb--hover {
 	opacity: 1;
 }
