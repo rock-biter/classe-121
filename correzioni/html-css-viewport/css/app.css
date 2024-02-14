@@ -103,3 +103,28 @@ ul i {
 	color: red;
 	font-size: 30px;
 }
+
+/* MEDIA QUERY (desktop first) */
+@media (max-width: 1023px) {
+	.app__bottom-bar .cover,
+	.app__bottom-bar .toolbar {
+		display: none;
+	}
+
+	.app__bottom-bar {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 767px) {
+	.app__menu {
+		width: 80px;
+	}
+}
+
+/* misto */
+@media (min-width: 600px) and (max-width: 900px) {
+	.banner {
+		display: none;
+	}
+}

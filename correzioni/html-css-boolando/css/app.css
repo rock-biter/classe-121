@@ -189,3 +189,35 @@ body {
 .product__price :nth-child(2) {
 	color: #555;
 }
+
+/* mobile first */
+@media (min-width: 768px) {
+	.col-md-6 {
+		width: calc(6 * 100% / 12);
+	}
+}
+
+@media (min-width: 992px) {
+	.col-lg-4 {
+		width: calc(4 * 100% / 12);
+	}
+
+	.col-lg-12 {
+	}
+
+	.col-lg-6 {
+	}
+}
+
+/* desktop first */
+/* @media (max-width: 991px) {
+	.products .col-4 {
+		width: calc(6 * 100% / 12);
+	}
+}
+
+@media (max-width: 767px) {
+	.products .col-4 {
+		width: calc(12 * 100% / 12);
+	}
+} */
