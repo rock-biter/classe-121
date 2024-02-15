@@ -1,0 +1,32 @@
+.container {
+	max-width: 100%;
+}
+
+@media (max-width: 480px) {
+	.row {
+		flex-wrap: wrap;
+		gap: 40px;
+	}
+
+	.steps .col {
+		width: 100%;
+	}
+
+	.steps {
+		margin-bottom: 0;
+	}
+
+	.why-us .col {
+		width: 100%;
+	}
+
+	.lessons .col {
+		width: 100%;
+	}
+
+	.why-us {
+		background-color: black;
+		padding: 3rem 0;
+		margin-bottom: 0;
+	}
+}
