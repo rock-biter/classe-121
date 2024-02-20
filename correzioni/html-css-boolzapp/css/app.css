@@ -10,6 +10,23 @@ body {
 
 #app {
 	height: 100vh;
+	background: rgb(217, 219, 215);
+	background: -moz-linear-gradient(
+		180deg,
+		rgba(78, 147, 137, 1) 150px,
+		rgba(217, 219, 215, 1) 150px
+	);
+	background: -webkit-linear-gradient(
+		180deg,
+		rgba(78, 147, 137, 1) 150px,
+		rgba(217, 219, 215, 1) 150px
+	);
+	background: linear-gradient(
+		180deg,
+		rgba(78, 147, 137, 1) 150px,
+		rgba(217, 219, 215, 1) 150px
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d9dbd7",endColorstr="#4e9389",GradientType=1);
 }
 
 .app__content {
