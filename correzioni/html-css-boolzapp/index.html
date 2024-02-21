@@ -10,13 +10,114 @@
 			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 		<link rel="stylesheet" href="./css/app.css" />
 	</head>
-	<body class="debug">
+	<body class="">
 		<div id="app">
 			<div class="app__content">
-				<header class="sidebar">sidebar contatti</header>
-				<main class="chat-wrapper">chat</main>
+				<header class="sidebar debug">
+					<div class="toolbar user-toolbar">
+						<div class="contact__info">
+							<img class="contact__image" src="./img/avatar_1.jpg" alt="" />
+						</div>
+						<ul class="toolbar__menu d-none d-lg-flex">
+							<li>
+								<i class="fa-solid fa-circle-notch"></i>
+							</li>
+							<li>
+								<i class="fa-solid fa-message"></i>
+							</li>
+							<li>
+								<i class="fa-solid fa-ellipsis-vertical"></i>
+							</li>
+						</ul>
+					</div>
+					<div class="notification-box toast">
+						<div class="toast__content">
+							<div class="notification__icon">
+								<i class="fa-solid fa-bell-slash"></i>
+							</div>
+							<div class="notification__message">
+								<p>Ricevi notifiche di nuovi messaggi</p>
+								<p>Attiva notifiche desktop</p>
+							</div>
+						</div>
+					</div>
+					<div class="search-bar">
+						<input type="text" placeholder="Ciao" />
+					</div>
+					<ul class="contacts">
+						<li class="contact toast">
+							<div class="contact__info toast__content">
+								<img class="contact__image" src="./img/avatar_1.jpg" alt="" />
+								<div class="d-none d-lg-block">
+									<h3 class="contact__name">Michele</h3>
+									<p class="last-access">Lorem ipsum dolor sit.</p>
+								</div>
+							</div>
+							<span class="time d-none d-lg-block"> 16:15 </span>
+						</li>
+						<li class="contact toast">
+							<div class="contact__info toast__content">
+								<img class="contact__image" src="./img/avatar_5.jpg" alt="" />
+								<div class="d-none d-lg-block">
+									<h3 class="contact__name">Pippo</h3>
+									<p class="last-access">Lorem ipsum dolor sit.</p>
+								</div>
+							</div>
+							<span class="time d-none d-lg-block"> 16:15 </span>
+						</li>
+						<li class="contact toast">
+							<div class="contact__info toast__content">
+								<img class="contact__image" src="./img/avatar_2.jpg" alt="" />
+								<div class="d-none d-lg-block">
+									<h3 class="contact__name">Gianni</h3>
+									<p class="last-access">Lorem ipsum dolor sit.</p>
+								</div>
+							</div>
+							<span class="time d-none d-lg-block"> 16:15 </span>
+						</li>
+						<li class="contact toast">
+							<div class="contact__info toast__content">
+								<img class="contact__image" src="./img/avatar_3.jpg" alt="" />
+								<div class="d-none d-lg-block">
+									<h3 class="contact__name">Sara</h3>
+									<p class="last-access">Lorem ipsum dolor sit.</p>
+								</div>
+							</div>
+							<span class="time d-none d-lg-block"> 16:15 </span>
+						</li>
+					</ul>
+				</header>
+				<main class="chat-wrapper">
+					<div class="toolbar user-toolbar">
+						<div class="contact__info toast__content">
+							<img class="contact__image" src="./img/avatar_1.jpg" alt="" />
+							<div>
+								<h3 class="contact__name">Michele</h3>
+								<p class="last-access">Lorem ipsum dolor sit.</p>
+							</div>
+						</div>
+						<ul class="toolbar__menu">
+							<li>
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</li>
+							<li>
+								<i class="fa-solid fa-paperclip"></i>
+							</li>
+							<li>
+								<i class="fa-solid fa-ellipsis-vertical"></i>
+							</li>
+						</ul>
+					</div>
+				</main>
 			</div>
 		</div>
 	</body>
