@@ -135,6 +135,7 @@ textarea {
 	color: #b1b1b1;
 	transform: translateY(-50%);
 	pointer-events: none;
+	font-size: 20px;
 }
 
 .search-bar input:focus-visible {
