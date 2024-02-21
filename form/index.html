@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Form</title>
+	</head>
+	<body>
+		<main>
+			<h1>Contattami!</h1>
+
+			<form action="./thank-you.html" method="GET">
+				<input type="hidden" name="__token" value="45eae54w8aw54aw" />
+
+				<p>
+					<label for="name">Nome</label>
+					<input
+						id="name"
+						value="Gianluca"
+						type="text"
+						name="name"
+						placeholder="Nome e cognome"
+					/>
+				</p>
+
+				<p>
+					<label for="password">Password</label>
+					<input
+						id="password"
+						type="password"
+						name="passowrd"
+						placeholder="La tua password"
+					/>
+				</p>
+
+				<p>
+					<label for="email">Email address</label>
+					<input
+						id="email"
+						required
+						type="email"
+						name="email"
+						placeholder="example@gmail.com"
+					/>
+				</p>
+
+				<p>
+					<textarea
+						id=""
+						cols="30"
+						rows="10"
+						name="message"
+						placeholder="Your message"
+					></textarea>
+				</p>
+
+				<p>
+					<input name="acceptance" id="privacy" type="checkbox" />
+					<label for="privacy">Accetta i termini e le condizioni</label>
+				</p>
+
+				<ul>
+					<li>
+						<input type="radio" value="male" name="gender" />
+						<label for="">Male</label>
+					</li>
+					<li>
+						<input type="radio" value="female" name="gender" />
+						<label for="">Female</label>
+					</li>
+					<li>
+						<input type="radio" value="other" name="gender" />
+						<label for="">Other</label>
+					</li>
+				</ul>
+
+				<p>
+					<select name="city">
+						<option value="">Seleziona una citta</option>
+						<option value="Milano">Milano</option>
+						<option value="Roma">Roma</option>
+						<option value="Napoli">Napoli</option>
+						<option value="Palemmo">Palemmo</option>
+					</select>
+				</p>
+
+				<p>
+					<!-- <input type="submit" value="Invia messaggio" /> -->
+					<button type="submit">Invia messaggio</button>
+				</p>
+			</form>
+		</main>
+	</body>
+</html>
