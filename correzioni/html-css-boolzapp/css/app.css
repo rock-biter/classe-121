@@ -56,6 +56,67 @@ textarea {
 
 .chat-wrapper {
 	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.chat {
+	flex-grow: 1;
+	padding: 32px 42px;
+	display: flex;
+	/* gap: 10px; */
+	flex-direction: column;
+	background-image: url('../img/mine.jpg');
+}
+
+.message {
+	border-radius: 8px;
+	padding: 8px;
+	position: relative;
+	max-width: 80%;
+	/* width: max-content; */
+}
+
+.message.received {
+	background-color: white;
+	align-self: flex-start;
+}
+
+.message.sent {
+	background-color: #def8c0;
+	align-self: flex-end;
+}
+
+.message.sent + .message.sent,
+.message.received + .message.received {
+	margin-top: 3px;
+}
+
+.message.sent + .message.received,
+.message.received + .message.sent {
+	margin-top: 20px;
+}
+
+/* chat toolbar */
+.chat__input {
+	background-color: white;
+	border-radius: 4px;
+	padding: 0 12px;
+	flex-grow: 1;
+	align-self: stretch;
+	outline: none;
+}
+
+.toolbar.chat-toolbar {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.chat-toolbar .icon {
+	font-size: 24px;
+	padding: 16px;
+	cursor: pointer;
+	color: #6a6a6a;
 }
 
 @media (min-width: 768px) {
