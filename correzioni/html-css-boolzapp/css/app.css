@@ -69,6 +69,7 @@ textarea {
 	/* gap: 10px; */
 	flex-direction: column;
 	background-image: url('../img/mine.jpg');
+	overflow-y: auto;
 }
 
 .message {
@@ -77,6 +78,17 @@ textarea {
 	position: relative;
 	max-width: 80%;
 	/* width: max-content; */
+}
+
+.message__time {
+	font-size: 12px;
+	color: #6a6a6a;
+	float: right;
+	margin-top: 8px;
+	margin-left: 16px;
+	bottom: 4px;
+	right: 4px;
+	display: block;
 }
 
 .message.received {
@@ -248,7 +260,7 @@ textarea {
 .contacts {
 	background: white;
 	flex-grow: 1;
-	overflow: auto;
+	overflow-y: scroll;
 }
 
 .contact:not(:last-child) {
