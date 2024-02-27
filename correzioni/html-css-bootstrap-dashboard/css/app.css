@@ -1,0 +1,24 @@
+#app {
+	background-color: #f8f9fa;
+}
+
+#app * {
+	border: 1px solid;
+}
+
+.sidebar {
+	width: 70px;
+	background-color: #051e34;
+	background-image: url('../img/sidebar-bg.png');
+	background-repeat: no-repeat;
+}
+
+.app__toolbar {
+	height: 70px;
+}
+
+@media (min-width: 992px) {
+	.sidebar {
+		width: 150px;
+	}
+}
