@@ -22,9 +22,68 @@
 	</head>
 	<body>
 		<div id="app" class="vh-100 d-flex flex-column">
-			<aside class="app__toolbar">top bar</aside>
-			<div class="app__body flex-grow-1 d-flex">
-				<header class="sidebar">links</header>
+			<aside class="app__toolbar d-flex align-items-center">
+				<div class="d-flex align-items-center gap-4 w-100 px-3">
+					<a class="logo" href="#">
+						<img class="d-none d-lg-block" src="./img/logo.svg" alt="" />
+						<img
+							class="d-block d-lg-none logo__mobile"
+							src="./img/mobile-logo.png"
+							alt=""
+						/>
+					</a>
+
+					<div class="search-bar flex-grow-1">
+						<span class="search-bar__icon">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</span>
+						<input
+							type="text"
+							name="search"
+							class="search-bar__input"
+							placeholder="Prova a cercare: lezioni di Laravel"
+						/>
+					</div>
+					<ul class="d-flex gap-4">
+						<li class="d-none d-lg-block">
+							<i class="fa-solid fa-ellipsis-vertical"></i>
+						</li>
+						<li class="d-none d-lg-block">
+							<i class="fa-solid fa-ellipsis-vertical"></i>
+						</li>
+						<li class="d-none d-lg-block">
+							<i class="fa-solid fa-ellipsis-vertical"></i>
+						</li>
+						<li>
+							<i class="fa-solid fa-ellipsis-vertical"></i>
+						</li>
+					</ul>
+				</div>
+			</aside>
+			<div class="app__body flex-grow-1 d-flex text-white">
+				<header class="sidebar p-3 d-flex flex-column">
+					<nav>
+						<ul>
+							<li>
+								<i class="fa-solid fa-house"></i>
+								ciao
+							</li>
+							<li>
+								<i class="fa-solid fa-chart-simple"></i>
+								ciao
+							</li>
+							<li>
+								<i class="fa-solid fa-chart-line"></i>
+								ciao
+							</li>
+							<li class="mt-auto order-1">
+								<i class="fa-solid fa-gear"></i>
+								ciao
+							</li>
+						</ul>
+						<a href="" class="btn btn-danger">ciao</a>
+					</nav>
+				</header>
 				<main class="main-content flex-grow-1">main content</main>
 			</div>
 		</div>
