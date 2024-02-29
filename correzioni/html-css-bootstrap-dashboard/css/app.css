@@ -14,6 +14,7 @@
 
 .sidebar {
 	width: 70px;
+	flex-shrink: 0;
 	background-color: #051e34;
 	background-image: url('../img/sidebar-bg.png');
 	background-repeat: no-repeat;
@@ -25,6 +26,7 @@
 
 .app__toolbar {
 	height: 70px;
+	flex-shrink: 0;
 }
 
 .logo__mobile {
@@ -63,4 +65,12 @@
 .sidebar nav,
 .sidebar nav > ul {
 	display: contents;
+}
+
+.main-content {
+	overflow-y: auto;
+}
+
+.app_body {
+	overflow: hidden;
 }
