@@ -1,0 +1,9 @@
+/* un po di stile */
+
+.categories {
+	display: none;
+}
+
+.d-flex {
+	display: flex;
+}
