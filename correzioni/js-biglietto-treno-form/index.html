@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Biglietto del treno</title>
+	</head>
+	<body>
+		<main>
+			<div class="user-input">
+				<p>
+					<label for="km">Km da percorrere</label>
+					<input type="text" id="km" placeholder="n km del viaggio" />
+				</p>
+				<!-- <p>
+					<label for="eta">Eta del passeggero</label>
+					<input type="text" id="eta" placeholder="Eta del passeggero" />
+				</p> -->
+				<p>
+					<label for="sconto">Seleziona lo sconto</label>
+					<select id="sconto">
+						<option selected value="">Nessuno</option>
+						<option value="1">Minorenni</option>
+						<option value="2">Over 65</option>
+					</select>
+				</p>
+				<p>
+					<button type="submit">Calcola</button>
+				</p>
+			</div>
+
+			<div id="biglietto"></div>
+		</main>
+
+		<script src="./js/app.js"></script>
+	</body>
+</html>
