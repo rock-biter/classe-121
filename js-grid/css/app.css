@@ -47,6 +47,14 @@ body {
 	background-color: black;
 }
 
+.bg-red {
+	background-color: red;
+}
+
+.bg-green {
+	background-color: greenyellow;
+}
+
 header {
 	/* color: white; */
 	padding: 30px 0;
