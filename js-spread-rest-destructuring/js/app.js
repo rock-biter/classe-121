@@ -154,6 +154,12 @@ console.log(sum(10, 21, 24, 23, 10, 23, 56, 49, 15))
 
 const numeriDaSommare = [12, 56, 9, 6, 3, 4]
 
+const massimo = Math.max(1, 6, 9, -10, 23, 10)
+console.log(massimo)
+
+const minimo = Math.min(...numeri)
+console.log(minimo)
+
 const somma = sum(...numeriDaSommare) // spread operator nell'invocazione della funzione
 console.log(somma)
 
