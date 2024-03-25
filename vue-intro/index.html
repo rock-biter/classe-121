@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vue Intro</title>
+
+		<style>
+			.bg-red {
+				background: red;
+			}
+
+			.bg-green {
+				background: green;
+			}
+
+			.bg-purple {
+				background: purple;
+			}
+
+			.bg-salmon {
+				background: salmon;
+			}
+
+			.text-lg {
+				font-size: 4rem;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<div id="app">
+			<h1 v-bind:class="className">{{ message.toUpperCase() }}</h1>
+			<p>{{ description }}</p>
+			<!-- <span>{{ count }} utenti loggati</span> -->
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto porro ut
+			optio sequi rerum expedita eligendi accusamus illo eaque, consequatur
+			impedit nam ad, maiores nesciunt tenetur quidem tempore nobis adipisci
+			minus, iste ab. Vitae, tenetur eum natus voluptate debitis repellendus
+			rerum pariatur corporis aliquam error labore est, id, amet voluptatem
+			sequi iste voluptates earum ullam cumque quasi fugit molestiae!
+			Perferendis officia quisquam cum officiis, sapiente cumque nesciunt in,
+			dolore doloremque quia exercitationem consectetur incidunt quae
+			reiciendis? Nulla cumque quia omnis eveniet veritatis reiciendis, maxime
+			harum culpa, labore accusantium porro ut delectus molestiae beatae earum
+			officia quod, voluptatum necessitatibus fugit obcaecati.
+			<!-- <p>Numero random: {{ getRandom() }}</p> -->
+
+			<!-- <img :src="srcImage" alt="" /> -->
+
+			<div>
+				<input
+					type="text"
+					v-model="lunghezzaViaggio"
+					placeholder="Km da percorrere"
+				/>
+				<select v-model="discount">
+					<option value="">Nessuno sconto</option>
+					<option value="1">Minorenne</option>
+					<option value="2">Over 65</option>
+				</select>
+
+				<!-- <select v-model="className">
+					<option value="">Nessuno colore</option>
+					<option value="bg-red">Rosso</option>
+					<option value="bg-purple">Viola</option>
+					<option value="bg-green">Verde</option>
+					<option value="bg-salmon">Salmone</option>
+				</select> -->
+
+				<button v-on:click="calcolaPrezzo" class="bg-salmon">Calcola</button>
+			</div>
+			<!-- <div>km: {{ lu nghezzaViaggio }}</div>
+			<div>sconto: {{ discount }}</div> -->
+
+			<div>Costo del biglietto: {{ prezzoFinale }} &euro;</div>
+		</div>
+
+		<!-- {{ message }} -->
+
+		<script>
+			// // destrutturation di un oggetto
+			// // const { createApp } = Vue
+			// const createApp = Vue.createApp
+			// console.log(Vue) // object
+
+			// const options = {
+			// 	data: function() {
+			// 		return {
+			// 			message: 'Ciao mondo!',
+			// 			count: 0,
+			// 		}
+			// 	},
+			// }
+
+			// // console.log(options)
+
+			// const app = createApp(options) //.mount('#app')
+			// app.mount('#app')
+			// // console.log(app)
+		</script>
+
+		<script src="./js/app.js"></script>
+	</body>
+</html>
