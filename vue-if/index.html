@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VUE v-if</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+
+		<style>
+			.text-red {
+				color: red;
+			}
+
+			.grid {
+				padding: 30px;
+				display: grid;
+				grid-template-columns: repeat(10, 1fr);
+				gap: 10px;
+			}
+
+			.grid > * {
+				aspect-ratio: 1;
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+		<div id="app">
+			<header>
+				<div class="container">
+					<div class="d-flex">
+						<div class="ms-auto position-relative">
+							<button @click="open = !open" class="btn btn-primary">
+								menu
+							</button>
+							<ul v-if="open === true" class="position-absolute">
+								<li v-for="item in dropdownMenu">
+									<a :href="item.href">{{ item.text }}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<section class="py-5 bg-secondary">
+				<div class="container">
+					<div class="row">
+						<div class="col-4">
+							<ul>
+								<li
+									@click="currentTabIndex = i"
+									:class="i === currentTabIndex ? 'btn-primary' : 'btn-light'"
+									class="btn mb-1"
+									v-for="(currentTab,i) in tabs"
+								>
+									{{ currentTab.title }}
+								</li>
+							</ul>
+						</div>
+						<!-- <div class="col-8">{{ tabs[0].content }}</div> -->
+						<div class="col-8">{{ tabs[currentTabIndex].content }}</div>
+					</div>
+				</div>
+			</section>
+
+			<ul>
+				<!-- v-for per ciclare un array e stamparne i valori -->
+				<li
+					:class="i === 0 ? 'text-red' : ''"
+					v-for="(currentElement,i) in nomi"
+				>
+					{{ i }} - {{ currentElement }}
+				</li>
+				<!-- <li>{{ nomi[0] }}</li>
+				<li>{{ nomi[1] }}</li>
+				<li>{{ nomi[2] }}</li> -->
+			</ul>
+
+			<!-- v-for per stampare 100 elementi -->
+			<!-- <div class="grid"> -->
+			<!-- <div v-for="(n,i) in 100"> -->
+			<!-- {{ n }}: {{ isEven(n) ? 'Pari' : 'Dispari' }} -->
+			<!-- {{ n }} : -->
+			<!-- <span v-if="isMultipleOf(n,15)">FizzBuzz</span>
+					<span v-else-if="isMultipleOf(n,3)">Fizz</span>
+					<span v-else-if="isMultipleOf(n,5)">Buzz</span>
+					<span v-else>{{ n }}</span> -->
+			<!-- <span v-if="n % 15 === 0">FizzBuzz</span>
+					<span v-else-if="n % 3 === 0">Fizz</span>
+					<span v-else-if="n % 5 === 0">Buzz</span>
+					<span v-else>{{ n }}</span> -->
+			<!-- </div> -->
+			<!-- </div> -->
+
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col" v-for="element in teams">
+							<div class="card h-100">
+								<div class="card-body">
+									<h3>{{ element.name }}</h3>
+									<p>{{ element.job }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- <div id="app">
+
+      <div>
+				<input
+					type="text"
+					v-model="lunghezzaViaggio"
+					placeholder="Km da percorrere"
+				/>
+				<select v-model="discount">
+					<option value="">Nessuno sconto</option>
+					<option value="1">Minorenne</option>
+					<option value="2">Over 65</option>
+				</select>
+
+				<button v-on:click="calcolaPrezzo" class="bg-salmon">Calcola</button>
+			</div>
+
+			<div v-if="prezzoFinale !== null">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Km</th>
+              <th>sconto</th>
+              <th>prezzo base</th>
+              <th>prezzo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                {{ lunghezzaViaggio }} km
+              </td>
+              <td v-if="discount === '1'">
+                minorenni
+              </td>
+              <td v-else-if="discount === '2'">
+                over 65
+              </td>
+              <td v-else>
+                nessuno
+              </td>
+              <td>
+                {{ prezzoBase.toFixed(2) }} &euro;
+              </td>
+              <td>
+                {{ prezzoFinale.toFixed(2) }} &euro;
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div v-else-if="lunghezzaViaggio > 0">
+        Hai selezionato {{ lunghezzaViaggio }} km
+      </div>
+      <div v-else>Info biglietto: </div>
+		</div> -->
+
+		<script src="./js/app.js"></script>
+	</body>
+</html>
