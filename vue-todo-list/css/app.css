@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Lato', sans-serif;
+}
+
+body {
+	background-color: #eaeaea;
+}
+
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.main-header {
+	padding: 24px;
+	background-color: cornflowerblue;
+	color: white;
+	text-align: center;
+}
+
+.logo {
+	font-size: 48px;
+	font-weight: bold;
+}
+
+.card {
+	background-color: white;
+	border-radius: 10px;
+}
+
+.card-body {
+	padding: 24px;
+}
+
+.card-header {
+	padding: 16px 24px;
+	background-color: cornflowerblue;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.add-todo {
+	border: none;
+	border-radius: 8px;
+	height: 32px;
+	width: 100%;
+	padding: 12px;
+	background-color: rgba(255, 255, 255, 0.4);
+	font-size: 24px;
+}
+
+input:focus-visible {
+	outline: none;
+}
+
+.todo-section {
+	padding: 80px 20px;
+}
+
+.todo-item {
+	line-height: 40px;
+	padding: 0 24px;
+	margin: 0 -24px;
+	font-size: 20px;
+	border-top: 1px solid #c8c8c8;
+	cursor: pointer;
+}
+
+.todo-item:first-child {
+	border-top: none;
+}
+
+.todo-item:hover {
+	background-color: #eaeaea;
+}
