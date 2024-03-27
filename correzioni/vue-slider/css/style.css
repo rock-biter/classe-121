@@ -13,6 +13,18 @@
 	gap: 50px;
 }
 
+.counter {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	justify-content: center;
+}
+
+.counter > * {
+	line-height: 40px;
+	padding: 0 12px;
+}
+
 .btn {
 	line-height: 40px;
 	padding: 0 24px;
