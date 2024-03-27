@@ -48,11 +48,16 @@ createApp({
 			}
 		},
 		prevSlide() {
-			if (this.currentIndex === 0) {
-				this.currentIndex = this.slides.length - 1
-			} else {
+			if (this.currentIndex > 0) {
 				this.currentIndex--
+			} else {
+				this.currentIndex = this.slides.length - 1
 			}
+			// if (this.currentIndex === 0) {
+			// 	this.currentIndex = this.slides.length - 1
+			// } else {
+			// 	this.currentIndex--
+			// }
 		},
 		stopInterval() {
 			if (this.autoplay !== null) {
