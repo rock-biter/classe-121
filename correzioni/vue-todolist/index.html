@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TO DO LIST</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="./css/app.css" />
+	</head>
+	<body>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+		<div id="app">
+			<header class="main-header">
+				<nav>
+					<div class="logo">TODOS</div>
+				</nav>
+			</header>
+
+			<main>
+				<section class="container todo-section">
+					<div class="card">
+						<div class="card-header flex">
+							<input
+								v-model="newTodoText"
+								class="add-todo"
+								type="text"
+								placeholder="Nuova todo..."
+								@keyup.enter="addTodo"
+							/>
+							<input @click="addTodo" type="submit" value="aggiungi" />
+						</div>
+						<!-- <div>{{ newTodoText }}</div> -->
+						<div class="card-body">
+							<ul class="todo-list">
+								<li
+									v-for="(todo,i) in todos"
+									:class="todo.done === true ? 'todo-item--done' : ''"
+									class="todo-item"
+									@click="toggleDone(todo)"
+								>
+									<!-- <span @click="toggleDone(todo)" class="todo-text">
+										{{ todo.text }}
+									</span> -->
+									<span class="todo-text"> {{ todo.text }} </span>
+
+									<i @click.stop="deleteTodo(i)" class="fa-solid fa-xmark"></i>
+								</li>
+							</ul>
+							<!-- <p>Non ci sono cose da fare...</p> -->
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<script src="./js/app.js"></script>
+	</body>
+</html>
