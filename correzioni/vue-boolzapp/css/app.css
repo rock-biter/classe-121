@@ -1,0 +1,334 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+input,
+textarea {
+	border: none;
+	background: transparent;
+}
+
+#app {
+	height: 100vh;
+	background: rgb(217, 219, 215);
+	background: -moz-linear-gradient(
+		180deg,
+		rgba(78, 147, 137, 1) 150px,
+		rgba(217, 219, 215, 1) 150px
+	);
+	background: -webkit-linear-gradient(
+		180deg,
+		rgba(78, 147, 137, 1) 150px,
+		rgba(217, 219, 215, 1) 150px
+	);
+	background: linear-gradient(
+		180deg,
+		rgba(78, 147, 137, 1) 150px,
+		rgba(217, 219, 215, 1) 150px
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d9dbd7",endColorstr="#4e9389",GradientType=1);
+}
+
+.app__content {
+	height: 100%;
+	display: flex;
+	background: #fafafa;
+}
+
+.sidebar {
+	display: none;
+	width: 82px;
+	flex-shrink: 0;
+	border-right: 1px solid #d6d6d6;
+	overflow: hidden;
+}
+
+.chat-wrapper {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.chat {
+	flex-grow: 1;
+	padding: 32px 42px;
+	display: flex;
+	/* gap: 10px; */
+	flex-direction: column;
+	background-image: url('../img/mine.jpg');
+	overflow-y: auto;
+}
+
+.message {
+	border-radius: 8px;
+	padding: 8px;
+	position: relative;
+	max-width: 80%;
+	/* width: max-content; */
+}
+
+.message__time {
+	font-size: 12px;
+	color: #6a6a6a;
+	float: right;
+	margin-top: 8px;
+	margin-left: 16px;
+	bottom: 4px;
+	right: 4px;
+	display: block;
+}
+
+.message.received {
+	background-color: white;
+	align-self: flex-start;
+}
+
+.message.sent {
+	background-color: #def8c0;
+	align-self: flex-end;
+}
+
+.message.sent + .message.sent,
+.message.received + .message.received {
+	margin-top: 3px;
+}
+
+.message.sent + .message.received,
+.message.received + .message.sent {
+	margin-top: 20px;
+}
+
+/* chat toolbar */
+.chat__input {
+	background-color: white;
+	border-radius: 4px;
+	padding: 0 12px;
+	flex-grow: 1;
+	align-self: stretch;
+	outline: none;
+}
+
+.toolbar.chat-toolbar {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.chat-toolbar .icon {
+	font-size: 24px;
+	padding: 16px;
+	cursor: pointer;
+	color: #6a6a6a;
+}
+
+@media (min-width: 768px) {
+	.sidebar {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media (min-width: 1200px) {
+	#app {
+		padding: 36px 0;
+	}
+
+	.app__content {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.sidebar {
+		width: 370px;
+	}
+}
+
+/* TOAST CARD */
+.toast {
+	padding: 16px;
+	display: flex;
+}
+
+.toast__content {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+/* TOOLBAR */
+.toolbar {
+	background: #eaeaea;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	padding: 10px 16px;
+	justify-content: space-between;
+	color: #b1b1b1;
+}
+
+.toolbar__menu {
+	display: flex;
+	align-items: center;
+	font-size: 22px;
+	gap: 20px;
+}
+
+.toolbar__menu > * {
+	cursor: pointer;
+}
+
+.notification-box {
+	background: #a6d7f9;
+}
+
+.search-bar,
+.notification-box {
+	display: none;
+}
+
+.search-bar {
+	position: relative;
+	margin: 10px 0;
+}
+
+.search-bar i {
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	color: #b1b1b1;
+	transform: translateY(-50%);
+	pointer-events: none;
+	font-size: 20px;
+}
+
+.search-bar input:focus-visible {
+	padding-left: 10px;
+}
+
+.search-bar input:focus-visible + i {
+	/* color: blue; */
+	display: none;
+}
+
+.search-bar input {
+	width: 100%;
+	height: 32px;
+	background-color: white;
+	border-top: 1px solid #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+	outline: none;
+	padding-left: 50px;
+	padding-right: 10px;
+	transition: padding 300ms;
+}
+
+@media (min-width: 1200px) {
+	.notification-box {
+		display: flex;
+	}
+
+	.search-bar {
+		display: block;
+	}
+}
+
+.notification__icon {
+	width: 50px;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	color: #a6d7f9;
+}
+
+/* CONTACT CARD */
+.contacts {
+	background: white;
+	flex-grow: 1;
+	overflow-y: scroll;
+}
+
+.contact.active,
+.contact:hover {
+	background-color: #efefef;
+}
+
+.contact {
+	cursor: pointer;
+}
+
+.contact:not(:last-child) {
+	border-bottom: 1px solid #d6d6d6;
+}
+
+.contact__image {
+	width: 50px;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.contact__info {
+	flex-grow: 1;
+	font-size: 14px;
+	color: #b1b1b1;
+}
+
+.contact__name {
+	color: black;
+	font-size: 16px;
+}
+
+/* DEBUG */
+.debug #app {
+	border: 3px solid black;
+	background-color: aquamarine;
+}
+
+.debug .app__content {
+	border: 3px solid red;
+}
+
+.debug .app__content > * {
+	border: 3px solid white;
+	color: white;
+}
+
+.debug .sidebar {
+	background-color: violet;
+}
+
+.debug .chat-wrapper {
+	background-color: cornflowerblue;
+}
+
+/* UTILITIES */
+
+.d-none {
+	display: none;
+}
+
+@media (min-width: 1200px) {
+	.d-lg-block {
+		display: block;
+	}
+
+	.d-lg-flex {
+		display: flex;
+	}
+}
