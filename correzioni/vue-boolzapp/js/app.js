@@ -5,8 +5,9 @@ const { createApp } = Vue
 createApp({
 	data() {
 		return {
-			message: 'Hello Vue!',
 			currentIndex: 3,
+			messageText: '',
+			search: '',
 			contacts: [
 				{
 					name: 'Michele',
@@ -172,6 +173,11 @@ createApp({
 			],
 		}
 	},
+	watch: {
+		search(newValue) {
+			console.log(`new: ${newValue}`)
+		},
+	},
 	computed: {
 		currentContact: function () {
 			return this.contacts[this.currentIndex]
@@ -179,5 +185,66 @@ createApp({
 		currentChat() {
 			return this.currentContact.messages
 		},
+	},
+	methods: {
+		reply(messages) {
+			setTimeout(() => {
+				// creare il messaggio di risposta
+				const message = {
+					date: '10/01/2020 15:30:55',
+					message: 'Ok!',
+					status: 'received',
+				}
+				// pushare il messaggio nella chat attiva
+				// console.log('this dentro setTimeout:', this)
+				messages.push(message)
+			}, 3000)
+		},
+		sendMessage() {
+			console.log(this.messageText)
+
+			// create l'oggetto del messaggio
+			const message = {
+				date: '10/01/2020 15:30:55',
+				message: this.messageText,
+				status: 'sent',
+			}
+			console.log(message)
+
+			const messages = this.contacts[this.currentIndex].messages
+			messages.push(message)
+			// this.contacts[this.currentIndex].messages.push(message)
+			// pushare il messaggio nella chat attiva
+
+			this.messageText = ''
+			console.log('this dentro al metodo:', this)
+			this.reply(messages)
+		},
+	},
+	beforeCreate() {
+		console.log('BEFORE CREATE', this.contacts)
+	},
+	created() {
+		console.log('CREATED', this.contacts)
+	},
+	beforeMount() {
+		console.log('BEFORE MOUNT', this.currentIndex)
+	},
+	mounted() {
+		console.log('MOUNTED', this.currentContact)
+	},
+	beforeUpdate() {
+		console.log('BEFORE UPDATE')
+	},
+	updated() {
+		console.log('UPDATED')
+	},
+	beforeUnmount() {
+		// console.log('BEFORE UNMOUNT')
+		alert('BEFORE UNMOUNT')
+	},
+	unmounted() {
+		// console.log('UNMOUNTED')
+		alert('UNMOUNTED')
 	},
 }).mount('#app')

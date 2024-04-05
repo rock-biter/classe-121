@@ -56,6 +56,7 @@
 							type="text"
 							name="search"
 							placeholder="Cerca o inizia una nuova chat"
+							v-model="search"
 						/>
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
@@ -64,6 +65,7 @@
 							v-for="(contact,i) in contacts"
 							:class="i === currentIndex ? 'active' : ''"
 							class="contact toast"
+							@click="currentIndex = i"
 						>
 							<div class="contact__info toast__content">
 								<img class="contact__image" :src="contact.avatar" alt="" />
@@ -194,6 +196,8 @@
 							class="chat__input"
 							type="text"
 							placeholder="Scrivi un messaggio"
+							v-model.trim="messageText"
+							@keyup.enter="sendMessage"
 						/>
 						<span class="icon">
 							<i class="fa-solid fa-microphone"></i>
