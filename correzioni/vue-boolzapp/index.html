@@ -61,10 +61,27 @@
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</div>
 					<ul class="contacts">
+						<!-- <li
+							v-for="(contact,i) in contacts"
+							:class="[ isVisible(contact) ? '' : 'hidden',i === currentIndex ? 'active' : '','contact', 'toast']"
+							@click="currentIndex = i"
+						>
+							<div class="contact__info toast__content">
+								<img class="contact__image" :src="contact.avatar" alt="" />
+								<div class="d-none d-lg-block">
+									<h3 class="contact__name">{{ contact.name }}</h3>
+									<p class="last-access">Lorem ipsum dolor sit.</p>
+								</div>
+							</div>
+							<span class="time d-none d-lg-block"> 16:15 </span>
+						</li> -->
 						<li
 							v-for="(contact,i) in contacts"
-							:class="i === currentIndex ? 'active' : ''"
-							class="contact toast"
+							:class="{
+								active: i === currentIndex,
+								hidden: !isVisible(contact),
+								'toast contact': true,
+							}"
 							@click="currentIndex = i"
 						>
 							<div class="contact__info toast__content">

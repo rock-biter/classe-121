@@ -187,6 +187,9 @@ createApp({
 		},
 	},
 	methods: {
+		isVisible(contact) {
+			return contact.name.toLowerCase().includes(this.search.toLowerCase())
+		},
 		reply(messages) {
 			setTimeout(() => {
 				// creare il messaggio di risposta
