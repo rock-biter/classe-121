@@ -1,0 +1,7 @@
+@use './variables' as *;
+
+@mixin card-mixin {
+  border-radius: $radius;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(black,0.2);
+}
