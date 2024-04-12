@@ -3,17 +3,11 @@
     <section class="container todo-section">
       <div class="card">
         <div class="card-header">
-          <input
-            @keydown.enter="addTodo"
-            v-model.trim="inputValue"
-            class="add-todo"
-            type="text"
-            placeholder="Nuova todo..."
-          />
+          
         </div>
         <div class="card-body">
-          <ul v-if="todos.length !== 0" class="todo-list">
-            <TodoItem v-for="(todo,i) in todos" @click="toggleDone(todo)" :item="todo" :key="i" 
+          <ul v-if="store.todos.length !== 0" class="todo-list">
+            <TodoItem v-for="(todo,i) in store.todos" @click="toggleDone(todo)" :item="todo" :key="i" 
              />
             <!-- <TodoItem :todoText="'Fare la pizza'" :done="true" />
             <TodoItem todoText="Andare in banca" />
@@ -29,6 +23,7 @@
             </li> -->
           </ul>
           <p v-else>Non ci sono cose da fare...</p>
+          <p>{{ store.inputValue }}</p>
         </div>
       </div>
     </section>
@@ -37,33 +32,19 @@
 
 <script>
 import TodoItem from './TodoItem.vue'
-import dataProducts from '../assets/db.json'
+// import AddTodo from './AddTodo.vue'
+import { store } from '../store.js'
 
 // console.log(dataProducts)
 
   export default {
     components: {
-      TodoItem
+      TodoItem,
+      // AddTodo
     },
     data() {
       return {
-        products: dataProducts.products,
-        inputValue: '',
-        stringaTodo: 'Fare la spesa',
-        todos: [
-          {
-            text: 'Fare la spesa',
-            done: false,
-          },
-          {
-            text: 'Fare i compiti',
-            done: true,
-          },
-          {
-            text: 'Fare la cartella',
-            done: false,
-          },
-        ],
+        store: store
         // todos: [
         //   'Fare i compiti',
         //   'Fare la cartella',
@@ -76,28 +57,13 @@ import dataProducts from '../assets/db.json'
       }
     },
     methods: {
-      addTodo() {
-        // console.log('keydown')
-
-        if (this.inputValue !== '') {
-          // aggiunge il value dell'input nell'array
-          // console.log(this.inputValue)
-          // console.log(this.todos)
-          this.todos.push(this.inputValue)
-          // inpostiamo inputValue a stringa vuota
-        }
-
-        this.inputValue = ''
-
-        console.log(this.todos)
-      },
       deleteTodo(i) {
-        console.log(i)
-        console.log('delete todo', this.todos[i])
-        this.todos.splice(i, 1)
+        // console.log(i)
+        // console.log('delete todo', this.store.todos[i])
+        this.store.todos.splice(i, 1)
       },
       toggleDone(todo) {
-        console.log('click su item')
+        // console.log('click su item')
         // todo
         // console.log(todo.text, todo.done)
         // if (todo.done === false) {

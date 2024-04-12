@@ -1,6 +1,6 @@
 <template>
   <li :class="item.done === true ? 'todo-item--done' : ''" class="todo-item">
-    {{ item.text }}: {{ text }}
+    {{ item.text }}
     <span>X</span>
   </li>
 </template>

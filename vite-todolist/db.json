@@ -11,8 +11,11 @@
     {
       "text": "Fare la pizza",
       "done": false
+    },
+    {
+      "text": "Comprare le polpette",
+      "done": false
     }
-    
   ],
   "products": [
     {
