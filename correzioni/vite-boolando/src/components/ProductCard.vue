@@ -1,5 +1,7 @@
 <template>
-  <div class="card product">
+  <div class="card product" :class="{
+    favorite: product.isInFavorites
+  }">
     <div class="card__header">
       <img class="product__thumb" :src="getStaticPath(product.frontImage)" alt="" />
       <img
@@ -47,6 +49,10 @@ import Badge from './Badge.vue';
 
 <style lang="scss" scoped>
 /* CARD PRODUCT */
+
+.product.favorite .btn-heart{
+  color: red;
+}
 
 .card__header img {
 	display: block;

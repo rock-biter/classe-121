@@ -3,7 +3,7 @@
 		<section class="section products">
 			<div class="container">
 				<div class="row">
-					<div v-for="element in products" :key="element.id" class="col-12 col-md-6 col-lg-4">
+					<div v-for="element in store.products" :key="element.id" class="col-12 col-md-6 col-lg-4">
 						<ProductCard :product="element" />
 					</div>
 				</div>
@@ -14,7 +14,9 @@
 
 <script>
 	import ProductCard from './ProductCard.vue';
-	import data from '../assets/db.json';
+	import { store } from '../store.js';
+
+	console.log(store)
 
   export default {
 		components: {
@@ -22,7 +24,7 @@
 		},
     data() {
 			return {
-				products: data.products
+				store: store,
 			}
 		},
   }
