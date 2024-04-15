@@ -1,12 +1,20 @@
 <template>
   <li :class="item.done === true ? 'todo-item--done' : ''" class="todo-item">
     {{ item.text }}
-    <span>X</span>
+    <!-- <span @click.stop="$emit('onDelete')">X</span> -->
+    <span @click.stop="confirm">X</span>
   </li>
+  <ModalConfirm :open="isOpen" @denied="isOpen = false" @allowed="deleteTodo" />
 </template>
 
 <script>
+import { store } from '../store.js'
+import ModalConfirm from './ModalConfirm.vue'
+
   export default {
+    components: {
+      ModalConfirm
+    },
     // props: ['todoText', 'done'],// definizione delle props del componente
     // props: ['item'],
     props: {
@@ -21,6 +29,33 @@
         default: 'pending'
       },
       // likes: Array
+    },
+    data() {
+      return {
+        isOpen: false
+      }
+    },
+    methods: {
+      confirm() {
+        this.isOpen = true
+      },
+      deleteTodo() {
+        console.log('Eliminare todo: ' + this.item.text)
+        // creare ed emettere un evento custom (che il padre potrà ascoltare)
+        // qui dobbiamo usare il this (il nome dell'evento è a scelta)
+        
+        this.isOpen = false
+        this.$emit('onDelete')
+
+        // IN ALTERNATIVA: dobbiamo trovare qual è l'indice di this.item dentro this.store.todos
+        // console.log(store, this.item)
+        // const i = store.todos.indexOf(this.item)
+        // // console.log(i)
+        // if(i > -1) {
+        //   store.todos.splice(i, 1)
+        // }
+        
+      }
     },
     mounted() {
       console.log(this.item)

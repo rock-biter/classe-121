@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
           <ul v-if="store.todos.length !== 0" class="todo-list">
-            <TodoItem v-for="(todo,i) in store.todos" @click="toggleDone(todo)" :item="todo" :key="i" 
+            <TodoItem v-for="(todo,i) in store.todos" @click="toggleDone(todo)" :item="todo" :key="i" @onDelete="deleteTodo(i)"
              />
             <!-- <TodoItem :todoText="'Fare la pizza'" :done="true" />
             <TodoItem todoText="Andare in banca" />
@@ -20,6 +20,7 @@
               :key="i"
             >
               {{ todo }}
+              
             </li> -->
           </ul>
           <p v-else>Non ci sono cose da fare...</p>
@@ -59,7 +60,7 @@ import { store } from '../store.js'
     methods: {
       deleteTodo(i) {
         // console.log(i)
-        // console.log('delete todo', this.store.todos[i])
+        console.log('delete todo', this.store.todos[i])
         this.store.todos.splice(i, 1)
       },
       toggleDone(todo) {
