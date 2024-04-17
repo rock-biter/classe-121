@@ -1,6 +1,7 @@
 <template>
   <header>
     <div class="container">
+      <!-- <font-awesome-icon :icon="['fas', 'user']" /> -->
       <input type="text" v-model="query" placeholder="Cerca ...">
       <button @click="fetchData">Cerca</button>
     </div>

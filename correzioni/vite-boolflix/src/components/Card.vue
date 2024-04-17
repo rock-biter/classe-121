@@ -5,6 +5,10 @@
       <p>{{ item.original_title }}</p>
       <p>{{ item.original_language }}</p>
       <p>{{ item.vote_average }}</p>
+      <p>
+        <font-awesome-icon v-for="n in 5" :key="n" :icon="['fas', 'star']" />
+        <font-awesome-icon :icon="['far', 'star']" />
+      </p>
     </div>
   </li>
 </template>
