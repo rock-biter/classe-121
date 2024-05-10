@@ -1,91 +1,24 @@
 <?php
 
-class Address
-{
-  public $street;
-  public $postal_code;
-  public $city;
-
-  function __construct($_city, $_street, $_postal_code)
-  {
-    $this->city = $_city;
-    $this->street = $_street;
-    $this->postal_code = $_postal_code;
-  }
-}
-
-// dichiariamo la classe Persona
-class Persona
-{
-  // ci mettero cose...
-  private $nome;
-  public $cognome;
-  private $eta;
-  public $address;
-
-  function __construct(string $_nome, string $_cognome, int $_eta)
-  {
-    // $this->nome = $_nome;
-    $this->setNome($_nome);
-    $this->cognome = $_cognome;
-    $this->setEta($_eta);
-    // $this->address = $_address;
-  }
-
-  public function setAddress(Address $_address)
-  {
-    $this->address = $_address;
-  }
-
-  // setter
-  public function setNome(string $new_nome): void
-  {
-    $this->nome = $new_nome;
-  }
-
-  // getter
-  public function getNome(): string
-  {
-    return $this->nome;
-  }
-
-  public function setEta(int $eta): void
-  {
-    if (is_numeric($eta) && $eta > 0) {
-      $this->eta = intval($eta);
-    } else {
-      // segnalere un errore
-      var_dump('il valore non è corretto');
-    }
-  }
-
-  public function saluta(): string
-  {
-    $nome = $this->nome;
-    $cognome = $this->cognome;
-
-    return "Ciao mi chiamo $nome $cognome";
-  }
-}
-
-class User
-{
-}
+require_once __DIR__ . '/Models/Address.php';
+require_once __DIR__ . '/Models/Persona.php';
+require_once __DIR__ . '/Models/User.php';
+require_once __DIR__ . '/Models/Quadrato.php';
+require_once __DIR__ . '/Models/Point.php';
 
 // creando l'instaza della classe Persona => un oggetto
-$address = new Address('Ferrara', 'Via delle Volte', '44121');
-$giangi = new Persona('Giangi', 'Lomarco', 33);
+// $address = new Address('Ferrara', 'Via delle Volte', '44121');
+// $giangi = new Persona('Giangi', 'Lomarco', 33);
 
-$giangi->setAddress($address);
+// $giangi->setAddress($address);
+// $giangi->setEta(34);
+// $giangi->setNome('Gianluca');
 
-$giangi->setEta(34);
-$giangi->setNome('Gianluca');
+// var_dump($giangi->address);
 
-var_dump($giangi->address);
-
-if (!is_null($giangi->address)) {
-  var_dump($giangi->address->street);
-}
+// if (!is_null($giangi->address)) {
+//   var_dump($giangi->address->street);
+// }
 
 // $giangi->nome = 'Giangi';
 // $giangi->setNome('Giangi');
@@ -94,75 +27,93 @@ if (!is_null($giangi->address)) {
 // $giangi->setEta('ciao');
 // $giangi->setEta([30]);
 
-echo $giangi->saluta();
+// echo $giangi->saluta();
 
-$address2 = new Address('Torino', 'Via Milano', 10100);
-$giovanni = new Persona('Giovanni', 'Mimmo', 12);
+$address = new Address([
+  'street' => 'Via Milano',
+  'city' => 'Torino',
+  'postal_code' => 10100
+]);
+$giovanni = new Persona('Giovanni', 'Mimmo', 12, $address);
 
 if (!is_null($giovanni->address)) {
   var_dump($giovanni->address->street);
 }
 
 var_dump($giovanni->address?->street);
-// $giovanni->nome = 'Giovanni';
+// $giovanni->nome = 'Giovanni'; // non possiamo perchè nome è private
 // $giovanni->setNome('Giovanni');
 
 echo '<br>';
 
 echo $giovanni->saluta();
 
-var_dump($giangi);
+// var_dump($giangi);
 var_dump($giovanni);
 
 
-$utente = new User();
+$utente = new User('Mimmo', 'Pasuqale', 24, $address, 'mimmo@gmail.com');
+// $utente->setEmail('mimmo@gmail.com');
+// $utente->eta = 23;
+var_dump($utente->getNome());
 var_dump($utente);
 
-$oggetto = new stdClass();
-var_dump($oggetto);
+// controllare il tipo di un oggetto
+var_dump($utente instanceof Persona); // true
+var_dump($utente instanceof User); // true
+var_dump($utente instanceof Address); // false
+
+// $oggetto = new stdClass();
+// var_dump($oggetto);
 
 
-class Quadrato
-{
+$utente->login();
+$utente->saluta();
+// $utente->saluta();
+// $utente->saluta();
+// $utente->saluta();
+// $utente->saluta();
 
-  public $lato;
-  public static $num_lati = 4;
+var_dump($utente->getMessages());
 
-  public static function getNumLati()
-  {
-    return self::$num_lati;
-  }
 
-  function __construct(int $_lato)
-  {
-    $this->lato = $_lato;
-  }
-
-  public function calcolaArea()
-  {
-    return $this->lato * $this->lato;
-  }
-
-  public function calcolaPerimetro()
-  {
-    // var_dump(self::$num_lati);
-    return $this->lato * self::$num_lati;
-  }
-}
 
 // prorpieta statica: accessibili dalla classe e non dall'istanza
-var_dump(Quadrato::$num_lati);
+var_dump(Square::$num_lati);
 // metodo statico: accessibili dalla classe e non dall'istanza
-var_dump(Quadrato::getNumLati());
+// var_dump(Square::getNumLati());
 
-$quadrato1 = new Quadrato(10);
-$quadrato2 = new Quadrato(5);
+$quadrato1 = new Square(10);
+$quadrato2 = new Square(5);
+
+$rettangolo = new Rect(10, 5);
+$quadrato1->visible = false;
+$quadrato1->draw('rosso');
+
+var_dump($quadrato1);
 
 var_dump($quadrato1->calcolaPerimetro());
 
-if ($quadrato1->calcolaArea() > $quadrato2->calcolaArea()) {
-  var_dump("Lárea del primo quadrato è maggiore del secondo");
+if ($quadrato1->calcolaPerimetro() > $rettangolo->calcolaPerimetro()) {
+  var_dump("L'area del quadrato è maggiore dell'area del rettangolo");
+} elseif ($quadrato1->calcolaArea() < $retttangolo->calcolaArea()) {
+  var_dump("L'area del rettangolo è maggiore dell'area del quadrato");
+} else {
+  var_dump('Le aree sono uguali');
 }
+
+
+$pointA = new Point(); // x = 0, y = 0
+$pointB = new Point(10); // x = 10, y = 0
+$pointC = new Point(8, 6); // x = 8, y = 6
+
+$pointB->visible = false;
+
+$pointA->draw('giallo');
+$pointB->draw('blue');
+$pointC->draw('green');
+
+var_dump($pointA, $pointB, $pointC);
 
 
 ?>
