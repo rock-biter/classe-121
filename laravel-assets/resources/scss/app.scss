@@ -1,0 +1,11 @@
+@use "~bootstrap/scss/bootstrap";
+
+body {
+  /* background-color: red; */
+}
+
+footer {
+  padding: 100px 0;
+  background-image: url('../img/footer-montagne-bottom.jpg');
+  background-position: center bottom;
+}
