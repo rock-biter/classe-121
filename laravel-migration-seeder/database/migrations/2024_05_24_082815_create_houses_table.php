@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->id(); // colonna id primary key unsigned bigint autoincrement
-            $table->string('reference', 12);
+            $table->string('reference', 12)->unique();
             $table->string('address', 100);
             $table->string('postal_code', 10);
             $table->string('city', 50);
