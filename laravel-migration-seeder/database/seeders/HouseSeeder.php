@@ -19,33 +19,62 @@ class HouseSeeder extends Seeder
         // svuota ogni volta la tabella
         DB::table('houses')->truncate();
 
-        $types = ['monolocale', 'bilocale', 'villetta a schiera', 'bifamiliare', 'villa indipendente', 'rudere'];
 
-        $rating = ['a+++', 'a++', 'a+', 'a', 'b', 'c', 'd', 'e', 'f', 'g'];
+        $data = $this->getCSVData(__DIR__ . '/houses.csv');
 
-        for ($i = 0; $i < 1000; $i++) {
+        // dump($data);
 
-            // creaimo l'istanza del model House
-            $new_house = new House();
+        foreach ($data as $index => $row) {
 
-            // popolare le proprietà dell'istanza
-            $new_house->reference = $faker->unique()->bothify('??-#########'); // 'AF-125645659'
-            $new_house->address = $faker->streetAddress();
-            $new_house->postal_code = $faker->postcode();
-            $new_house->city = $faker->city();
-            $new_house->state = $faker->state();
-            $new_house->square_meters = $faker->numberBetween(30, 1000);
-            $new_house->rooms = $faker->numberBetween(2, 30);
-            $new_house->bathrooms = $faker->numberBetween(1, 6);
-            $new_house->type = $faker->randomElement($types);
-            $new_house->description = $faker->optional()->text(rand(150, 300));
-            $new_house->price = $faker->randomFloat(2, 15000, 5000000);
-            $new_house->energy_rating = $faker->randomElement($rating);
-            $new_house->is_available = $faker->randomElement([true, false]);
+            if ($index !== 0) {
+                $house = new House();
 
-            // salviamo i dati con il metodo save()
-            $new_house->save();
+                $house->reference = $row[1]; // 'AF-125645659'
+                $house->address = $row[2];
+                $house->postal_code = $row[3];
+                $house->city = $row[4];
+                $house->state = $row[5];
+                $house->square_meters = $row[6];
+                $house->rooms = $row[7];
+                $house->bathrooms = $row[8];
+                $house->type = $row[9];
+                $house->description = $row[10];
+                $house->price = $row[11];
+                $house->energy_rating = $row[13];
+                $house->is_available = $row[12];
+
+                $house->save();
+            }
         }
+
+
+        // $types = ['monolocale', 'bilocale', 'villetta a schiera', 'bifamiliare', 'villa indipendente', 'rudere'];
+
+        // $rating = ['a+++', 'a++', 'a+', 'a', 'b', 'c', 'd', 'e', 'f', 'g'];
+
+        // for ($i = 0; $i < 1000; $i++) {
+
+        //     // creaimo l'istanza del model House
+        //     $new_house = new House();
+
+        //     // popolare le proprietà dell'istanza
+        //     $new_house->reference = $faker->unique()->bothify('??-#########'); // 'AF-125645659'
+        //     $new_house->address = $faker->streetAddress();
+        //     $new_house->postal_code = $faker->postcode();
+        //     $new_house->city = $faker->city();
+        //     $new_house->state = $faker->state();
+        //     $new_house->square_meters = $faker->numberBetween(30, 1000);
+        //     $new_house->rooms = $faker->numberBetween(2, 30);
+        //     $new_house->bathrooms = $faker->numberBetween(1, 6);
+        //     $new_house->type = $faker->randomElement($types);
+        //     $new_house->description = $faker->optional()->text(rand(150, 300));
+        //     $new_house->price = $faker->randomFloat(2, 15000, 5000000);
+        //     $new_house->energy_rating = $faker->randomElement($rating);
+        //     $new_house->is_available = $faker->randomElement([true, false]);
+
+        //     // salviamo i dati con il metodo save()
+        //     $new_house->save();
+        // }
 
 
         // $houses = [
@@ -122,5 +151,26 @@ class HouseSeeder extends Seeder
 
         //     // dump($new_house);
         // }
+    }
+
+    public function getCSVData(string $path)
+    {
+        // conterrà tutte le righe che leggiamo dal file CSV
+        $data = [];
+
+        $file_stream = fopen($path, 'r');
+
+        if ($file_stream === false) {
+            exit('Cannot open the file ' . $path);
+        }
+
+        while (($row = fgetcsv($file_stream)) !== false) {
+            $data[] = $row;
+        }
+
+        fclose($file_stream);
+
+        // ritornaimo le righe
+        return $data;
     }
 }
