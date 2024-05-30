@@ -43,7 +43,18 @@
           </td>
           <td>{{ $pasta->type}}</td>
           <td>{{ $pasta->cooking_time }}</td>
-          <td></td>
+          <td>
+            <div class="d-flex gap-2">
+              <a href="{{ route('pastas.edit',$pasta) }}">Edit</a>
+              <form action="{{ route('pastas.destroy',$pasta) }}" method="POST">
+                @method('DELETE')
+                @csrf
+
+                <button class="btn btn-link link-danger">Trash</button>
+
+              </form>
+            </div>
+          </td>
         </tr>
     @endforeach
   </tbody>

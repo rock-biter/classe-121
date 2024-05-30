@@ -33,9 +33,62 @@ class PastaController extends Controller
         return view('pastas.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
 
-        dump('Metodo store');
+        // recuperiamo i parametri che arrivano dal form
+        $form_data = $request->all();
+
+        // dd($form_data);
+
+        // crea l'istanza, la popola con i dati e la salva nel db
+        $new_pasta = Pasta::create($form_data);
+
+        // creare l'istanza di Pasta
+        // $new_pasta = new Pasta();
+
+        // // popoliamo l'istanza con i dati che sono arrivati dal form
+        // $new_pasta->title = $form_data['title'];
+        // $new_pasta->image = $form_data['image'];
+        // $new_pasta->weight = $form_data['weight'];
+        // $new_pasta->cooking_time = $form_data['cooking_time'];
+        // $new_pasta->description = $form_data['description'];
+        // $new_pasta->type = $form_data['type'];
+
+        // // salviamo l'istanza ->save()
+        // $new_pasta->save();
+
+        // dump($new_pasta);
+        // redirect alla rotta show di pasta 
+        // return redirect()->route('pastas.show', $new_pasta);
+        return to_route('pastas.show', $new_pasta);
+        // return redirect()->route('pastas.index');
+    }
+
+    public function edit(Pasta $pasta)
+    {
+        return view('pastas.edit', compact('pasta'));
+    }
+
+    public function update(Request $request, Pasta $pasta)
+    {
+        $form_data = $request->all();
+        // dd($request->all());
+        // dd($pasta);
+        $pasta->fill($form_data); //non salva automaticamente sul db
+        // se qui dobbiamo fare qualcos'altro
+        $pasta->save();
+        // $pasta->update($form_data);
+
+        // redirect alla rotta show di pasta 
+        return to_route('pastas.show', $pasta);
+    }
+
+    public function destroy(Pasta $pasta)
+    {
+
+        $pasta->delete();
+
+        return to_route('pastas.index');
     }
 }

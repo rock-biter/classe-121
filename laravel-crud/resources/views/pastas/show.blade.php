@@ -7,8 +7,25 @@
 <main>
   <section>
     <div class="container">
-      <p>pastas.show</p>
-      <h1 class="fs-2">Pagina di dettaglio della pasta: {{ $pasta->title }}</h1>
+      <div class="row">
+        <div class="col-auto">
+          <p>pastas.show</p>
+      <h1 class="fs-2">Titolo:{{ $pasta->title }}</h1>
+        </div>
+        <div class="col-auto ms-auto">
+          <div class="d-flex gap-2">
+            <a href="{{ route('pastas.edit',$pasta) }}">Edit</a>
+            <form action="{{ route('pastas.destroy',$pasta) }}" method="POST">
+                @method('DELETE')
+                @csrf
+
+                <button class="btn btn-link link-danger">Trash</button>
+
+              </form>
+          </div>
+          
+        </div>
+      </div>
     </div>
     <div class="container">
       <ul>

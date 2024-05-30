@@ -18,27 +18,27 @@
 
         <div class="mb-3">
           <label for="title" class="form-label">Titolo</label>
-          <input type="email" name="title" class="form-control" id="title" placeholder="Titolo della pasta">
+          <input type="text" name="title" class="form-control" id="title" placeholder="Titolo della pasta">
         </div>
 
         <div class="mb-3">
           <label for="image" class="form-label">Url Image</label>
-          <input type="email" name="image" class="form-control" id="image" placeholder="http://...">
+          <input type="text" name="image" class="form-control" id="image" placeholder="http://...">
         </div>
 
         <div class="mb-3">
           <label for="type" class="form-label">Tipologia</label>
-          <input type="email" name="type" class="form-control" id="type" placeholder="lunga">
+          <input type="text" name="type" class="form-control" id="type" placeholder="lunga">
         </div>
 
         <div class="mb-3">
           <label for="cooking_time" class="form-label">Tempo di cottura</label>
-          <input type="email" name="cooking_time" class="form-control" id="cooking_time" placeholder="10 min">
+          <input type="text" name="cooking_time" class="form-control" id="cooking_time" placeholder="10 min">
         </div>
 
         <div class="mb-3">
-          <label for="weigth" class="form-label">Peso</label>
-          <input type="email" name="weigth" class="form-control" id="weigth" placeholder="500g">
+          <label for="weight" class="form-label">Peso</label>
+          <input type="text" name="weight" class="form-control" id="weight" placeholder="500g">
         </div>
 
         <div class="mb-3">
