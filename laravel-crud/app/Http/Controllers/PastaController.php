@@ -36,6 +36,14 @@ class PastaController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+            'title' => 'required|max:100|min:3',
+            'type' => ['required', 'max:50'],
+            'image' => 'required|max:255|url',
+            'weight' => 'required|max:20',
+            'cooking_time' => 'required|max:20',
+            'description' => 'nullable|max:2000'
+        ]);
         // recuperiamo i parametri che arrivano dal form
         $form_data = $request->all();
 
@@ -72,6 +80,15 @@ class PastaController extends Controller
 
     public function update(Request $request, Pasta $pasta)
     {
+        $request->validate([
+            'title' => 'required|max:100|min:3',
+            'type' => ['required', 'max:50'],
+            'image' => 'required|max:255|url',
+            'weight' => 'required|max:20',
+            'cooking_time' => 'required|max:20',
+            'description' => 'nullable|max:2000'
+        ]);
+
         $form_data = $request->all();
         // dd($request->all());
         // dd($pasta);

@@ -18,36 +18,47 @@
 
         <div class="mb-3">
           <label for="title" class="form-label">Titolo</label>
-          <input type="text" name="title" class="form-control" id="title" placeholder="Titolo della pasta">
+          <input type="text" name="title" class="form-control" id="title" placeholder="Titolo della pasta" value="{{ old('title') }}">
         </div>
 
         <div class="mb-3">
           <label for="image" class="form-label">Url Image</label>
-          <input type="text" name="image" class="form-control" id="image" placeholder="http://...">
+          <input type="text" name="image" class="form-control" id="image" placeholder="http://..." value="{{ old('image') }}">
         </div>
 
         <div class="mb-3">
           <label for="type" class="form-label">Tipologia</label>
-          <input type="text" name="type" class="form-control" id="type" placeholder="lunga">
+          <input type="text" name="type" class="form-control" id="type" placeholder="lunga" value="{{ old('type') }}">
         </div>
 
         <div class="mb-3">
           <label for="cooking_time" class="form-label">Tempo di cottura</label>
-          <input type="text" name="cooking_time" class="form-control" id="cooking_time" placeholder="10 min">
+          <input type="text" name="cooking_time" class="form-control" id="cooking_time" placeholder="10 min" value="{{ old('cooking_time') }}">
         </div>
 
         <div class="mb-3">
           <label for="weight" class="form-label">Peso</label>
-          <input type="text" name="weight" class="form-control" id="weight" placeholder="500g">
+          <input type="text" name="weight" class="form-control" id="weight" placeholder="500g" value="{{ old('weight') }}">
         </div>
 
         <div class="mb-3">
           <label for="description" class="form-label">Descrizione</label>
-          <textarea class="form-control" name="description" id="description" rows="3" placeholder="Descrizione della pasta"></textarea>
+          <textarea class="form-control" name="description" id="description" rows="3" placeholder="Descrizione della pasta">{{ old('description') }}</textarea>
         </div>
 
         <button class="btn btn-primary">Crea</button>
       </form>
+    </div>
+    <div class="container">
+      @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
     </div>
   </section>
 </main>
