@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\PostController as PublicPostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/posts',[PostController::class,'index']);
+Route::resource('posts', PublicPostController::class)->only(['index', 'show']);
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
