@@ -18,6 +18,8 @@
           <tr>
             <th>ID</th>
             <th>Title</th>
+            {{-- <th>Category ID</th> --}}
+            <th>Category</th>
             <th colspan="3">Slug</th>
           </tr>
         </thead>
@@ -35,6 +37,14 @@
                   {{ $post->title }}
                   </a>
                 @endif
+              </td>
+              {{-- <td>
+                {{ $post->category_id }}
+              </td> --}}
+              <td>
+                {{-- categoria --}}
+                {{ $post->category ? $post->category->name : '' }}
+                {{-- @dump( $post->category() ) --}}
               </td>
               <td>{{ $post->slug }}</td>
               <td>
