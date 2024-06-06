@@ -18,7 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+
+        $posts = Post::with(['category', 'category.posts'])->get(); // 3 query
+        // dd($posts);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -86,6 +88,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
 
+        //eager loading
+        $post->load(['category', 'category.posts']);
 
         return view('admin.posts.show', compact('post'));
     }
