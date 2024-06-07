@@ -11,6 +11,12 @@
         {{-- {{ optional($post->category)->name  }} --}}
         {{-- @dump($post->category) --}}
       </p>
+      {{-- @dump($post->tags()) --}}
+      <ul class="d-flex gap-2 list-unstyled">
+        @foreach($post->tags as $tag) 
+          <li>{{ $tag->name }}</li>
+        @endforeach
+      </ul>
       {{-- <p>
         @dump($post->category() )
       </p> --}}

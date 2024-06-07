@@ -7,6 +7,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -31,10 +32,11 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name', 'asc')->get();
+        $tags = Tag::orderBy('name', 'asc')->get();
 
         // dd($categories);
 
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -50,8 +52,6 @@ class PostController extends Controller
 
         // dd($request->all());
         // dd($request->all(), $request->validated());
-
-        // dd($request->all());
 
         $form_data = $request->validated();
 
@@ -74,9 +74,16 @@ class PostController extends Controller
 
         $form_data['slug'] = $slug;
 
+        // creare l'istanza e salvarla nel db
         $post = Post::create($form_data);
 
-        // creare l'istanza e salvarla nel db
+        // controlliamo se sono stati inviati dei tags
+        if ($request->has('tags')) {
+            // $post->tags()->attach($form_data['tags']);
+            $post->tags()->attach($request->tags);
+        }
+
+
 
         // redirect alla rotta show
         return to_route('admin.posts.show', $post);
@@ -99,9 +106,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $post->load(['tags']);
         $categories = Category::orderBy('name', 'asc')->get();
+        $tags = Tag::orderBy('name', 'asc')->get();
 
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -116,8 +125,23 @@ class PostController extends Controller
         //     'content' => 'nullable|string'
         // ]);
 
+        // dd($request->all());
+
         $form_data = $request->validated();
         $post->update($form_data);
+
+        // dd($request->tags);
+
+        // Variante PRO
+        // $post->tags()->sync($request->tags ?? []);
+
+        if ($request->has('tags')) {
+            $post->tags()->sync($request->tags);
+        } else {
+            // l'utente non ha selezionato niente eliminiamo i collegamenti con i tags
+            $post->tags()->detach();
+            // $post->tags()->sync([]); // fa la stessa cosa
+        }
 
         // dd($request->all());
         return to_route('admin.posts.show', $post);
@@ -128,6 +152,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        // Necessario senza l'onDelete Cascade
+        // $post->tags()->detach();
         $post->delete();
 
         return to_route('admin.posts.index');
