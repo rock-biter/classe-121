@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\PostController as PublicPostController;
 use App\Http\Controllers\ProfileController;
@@ -30,13 +31,12 @@ Route::middleware(['auth', 'verified'])
 
         // url: admin/
         // name: admin.dashboard
-        Route::get('/', function () {
-            return view('admin.dashboard');
-        })->name('dashboard');
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         // Registrare tutte le altre rotte protette
         // CRUD POSTS
         Route::resource('posts', PostController::class);
+        Route::post('/posts/{post}/favorite', [PostController::class, 'toggleFavorite'])->name('posts.toggleFavorite');
     });
 
 Route::middleware('auth')->group(function () {

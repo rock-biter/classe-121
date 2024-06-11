@@ -7,7 +7,16 @@
     </h2>
     <div class="row justify-content-center">
         <div class="col">
+            @foreach($posts as $favoritePost)
+
             <div class="card">
+                <div class="card-body">
+                    <a href="{{ route('admin.posts.show',$favoritePost) }}">{{ $favoritePost->title }}</a>
+                </div>
+            </div>
+
+            @endforeach
+            {{-- <div class="card">
                 <div class="card-header">{{ __('User Dashboard') }}</div>
 
                 <div class="card-body">
@@ -19,7 +28,7 @@
 
                     {{ __('You are logged in!') }}
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
