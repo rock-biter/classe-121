@@ -1,14 +1,22 @@
 <template>
-  <h1>{{ message  }}</h1>
-  <AppMain />
+  <!-- <h1>Hello App!</h1>
+  <p>
+    <strong>Current route path:</strong> {{ $route.fullPath }}
+  </p> -->
+  <NavBar />
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <script>
 import AppMain from './components/AppMain.vue'
+import NavBar from './components/NavBar.vue'
 
 export default {
   components: {
-    AppMain
+    AppMain,
+    NavBar
   },
   data() {
     return {
