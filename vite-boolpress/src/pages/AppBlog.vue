@@ -8,11 +8,7 @@
         <p v-if="post.category" class="text-gray-600">
           {{ post.category.name }}
         </p>
-        <ul class="flex flex-wrap gap-2 mt-2">
-          <li class="rounded-full bg-gray-200 px-3 leading-6" v-for="tag in post.tags" :key="tag.id">
-            {{ tag.name }}
-          </li>
-        </ul>
+        <TagsPills :tags="post.tags" />
         <router-link :to="{ name: 'posts.show', params: { slug: post.slug } }" >Read more...</router-link>
       </li>
     </ul>
@@ -28,8 +24,12 @@
 
 <script>
 import axios from 'axios'
+import TagsPills from '../components/TagsPills.vue'
 
 export default {
+  components: {
+    TagsPills
+  },
   data() {
     return {
       posts: [],

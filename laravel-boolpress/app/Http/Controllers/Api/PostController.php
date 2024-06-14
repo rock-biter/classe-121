@@ -21,4 +21,14 @@ class PostController extends Controller
             'results' => $results
         ]);
     }
+
+    public function show(Post $post)
+    {
+
+        $post->load('category', 'tags', 'user');
+
+        return response()->json([
+            'post' => $post
+        ]);
+    }
 }
