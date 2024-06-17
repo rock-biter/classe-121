@@ -2,14 +2,8 @@
   <div class="container">
     <h2 class="text-2xl my-8">Ecco i nostri post</h2>
     <ul class="grid grid-cols-3 gap-4">
-      <li class="border p-4 shadow-lg rounded-lg" v-for="post in posts" :key="post.id">
-        <h2 class="text-lg text-amber-400 font-medium">{{ post.title }}</h2>
-        <p class="text-sm">{{  post.user.name }}</p>
-        <p v-if="post.category" class="text-gray-600">
-          {{ post.category.name }}
-        </p>
-        <TagsPills :tags="post.tags" />
-        <router-link :to="{ name: 'posts.show', params: { slug: post.slug } }" >Read more...</router-link>
+      <li v-for="post in posts" :key="post.id">
+        <PostCard :post="post" />
       </li>
     </ul>
     <div v-if="lastPage > 1">
@@ -25,10 +19,12 @@
 <script>
 import axios from 'axios'
 import TagsPills from '../components/TagsPills.vue'
+import PostCard from '../components/PostCard.vue'
 
 export default {
   components: {
-    TagsPills
+    TagsPills,
+    PostCard
   },
   data() {
     return {

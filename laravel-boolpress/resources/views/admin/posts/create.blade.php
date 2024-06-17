@@ -7,7 +7,7 @@
       <h1>Nuovo Post</h1>
     </div>
     <div class="container">
-      <form action="{{ route('admin.posts.store') }}" method="POST">
+      <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -16,7 +16,12 @@
         </div>
 
         <div class="mb-3">
-          <label for="category_id" class="form-label">Titolo</label>
+          <label for="cover_image" class="form-label">Carica un file</label>
+          <input class="form-control" type="file" name="cover_image" id="cover_image">
+        </div>
+
+        <div class="mb-3">
+          <label for="category_id" class="form-label">Categoria</label>
           <select class="form-control" name="category_id" id="category_id">
             <option value="">-- Seleziona Categoria --</option>
             @foreach($categories as $category) 

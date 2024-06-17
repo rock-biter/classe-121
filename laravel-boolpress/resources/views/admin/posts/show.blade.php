@@ -4,8 +4,18 @@
 
   <section>
     <div class="container">
+
+      @if($post->cover_image)
+        <figure>
+          <img src="{{ asset('storage/' . $post->cover_image) }}" alt="Cove image {{ $post->title }}.">
+          {{-- <img src="{{ $post->cover_fullpath }}" alt="Cove image {{ $post->title }}."> --}}
+          {{-- <img src="{{ Storage::url($post->cover_image) }}" alt="Cove image {{ $post->title }}."> --}}
+        </figure>
+      @endif
+
       <h1>{{ $post->title }}</h1>
       <p>{{ $post->slug }}</p>
+      <p>{{ $post->created_at->format('d/m/Y') }}</p>
       <p>Utente: {{ $post->user->name }}</p>
       <p>
         Categoria:

@@ -4,16 +4,21 @@
 
   <section>
     <div class="container">
-      <h1>Nuovo Post</h1>
+      <h1>Modifica Post</h1>
     </div>
     <div class="container">
-      <form action="{{ route('admin.posts.update',$post) }}" method="POST">
+      <form action="{{ route('admin.posts.update',$post) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         <div class="mb-3">
           <label for="title" class="form-label">Titolo</label>
           <input type="text" class="form-control" name="title" id="title" placeholder="Titolo articolo" value="{{ old('title',$post->title) }}">
+        </div>
+
+        <div class="mb-3">
+          <label for="cover_image" class="form-label">Carica un file</label>
+          <input class="form-control" type="file" name="cover_image" id="cover_image">
         </div>
 
         <div class="mb-3">

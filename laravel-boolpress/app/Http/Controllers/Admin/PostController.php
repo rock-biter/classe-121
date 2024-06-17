@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -81,6 +82,18 @@ class PostController extends Controller
         $form_data['slug'] = $slug;
         $form_data['user_id'] = Auth::id();
 
+
+        // per controllare se è stato inviato il file
+        if ($request->hasFile('cover_image')) {
+
+            //
+            $image_path = Storage::disk('public')->put('cover_images', $request->cover_image);
+            $form_data['cover_image'] = $image_path;
+
+            // dd($image_path);
+        }
+
+
         // creare l'istanza e salvarla nel db
         $post = Post::create($form_data);
 
@@ -138,9 +151,29 @@ class PostController extends Controller
         if ($post->user_id !== Auth::id()) {
             return to_route('admin.posts.index');
         }
+
+
+
+
         // dd($request->all());
 
         $form_data = $request->validated();
+
+        // per controllare se è stato inviato il file
+        if ($request->hasFile('cover_image')) {
+
+            //salviamo il nuovo file inviato
+            $image_path = Storage::disk('public')->put('cover_images', $request->cover_image);
+            $form_data['cover_image'] = $image_path;
+
+            if ($post->cover_image) {
+                // eliminare il file $post->cover_image
+                Storage::disk('public')->delete($post->cover_image);
+            }
+
+            // dd($image_path);
+        }
+
         $post->update($form_data);
 
         // dd($request->tags);
