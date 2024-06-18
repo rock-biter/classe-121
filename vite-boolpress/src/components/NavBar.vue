@@ -6,11 +6,38 @@
         <RouterLink class="text-lg font-extrabold" to="/">Gianluca Lomarco</RouterLink>
 
         <nav class="flex gap-3 items-center">
-          <RouterLink :class="$route.fullPath === '/' ? 'text-amber-400' : ''" :to="{ name: 'home' }">Home</RouterLink>
-          <RouterLink :class="$route.fullPath === '/blog' ? 'text-amber-400' : ''" :to="{ name: 'blog'}">Blog</RouterLink>
-          <RouterLink :class="$route.fullPath === '/about' ? 'text-amber-400' : ''" :to="{ name: 'about'}">About</RouterLink>
+          <RouterLink v-for="link in menu" :key="menu.routeName" :class="$route.name === link.routeName ? 'text-amber-400' : ''" :to="{ name: link.routeName }">{{  link.text  }}</RouterLink>
+          <!-- <RouterLink :class="$route.fullPath === '/blog' ? 'text-amber-400' : ''" :to="{ name: 'blog'}">Blog</RouterLink>
+          <RouterLink :class="$route.fullPath === '/about' ? 'text-amber-400' : ''" :to="{ name: 'about'}">About</RouterLink> -->
         </nav>
       </div>
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      menu: [
+        {
+          routeName: 'home',
+          text: 'Home'
+        },
+        {
+          routeName: 'blog',
+          text: 'Blog'
+        },
+        {
+          routeName: 'about',
+          text: 'About'
+        },
+        {
+          routeName: 'contact',
+          text: 'Contact Us'
+        }
+      ]
+    }
+  },
+}
+</script>

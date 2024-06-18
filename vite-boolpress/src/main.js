@@ -9,6 +9,7 @@ import AppHome from './pages/AppHome.vue'
 import AppAbout from './pages/AppAbout.vue'
 import AppBlog from './pages/AppBlog.vue'
 import AppPost from './pages/AppPost.vue'
+import AppContact from './pages/AppContact.vue'
 import AppNotFound from './pages/AppNotFound.vue'
 
 const router = createRouter({
@@ -24,6 +25,7 @@ const router = createRouter({
 		},
 		{ path: '/about', name: 'about', component: AppAbout },
 		{ path: '/:pathMatch(.*)*', name: 'not-found', component: AppNotFound },
+		{ path: '/contact', name: 'contact', component: AppContact },
 	],
 })
 
