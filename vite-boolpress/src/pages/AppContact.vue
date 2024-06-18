@@ -1,10 +1,11 @@
 <template>
+  <BaseLayout>
   <section>
     <div class="container py-8">
       <h1 class="text-2xl font-bold">Contattami</h1>
     </div>
   </section>
-  <section>
+  <section class="pb-10">
     <div class="container">
       <form v-if="success === false" @submit.prevent="sendMessage" action="">
         <div class="mb-3">
@@ -33,12 +34,18 @@
       </div>
     </div>
   </section>
+  </BaseLayout>
+
 </template>
 
 <script>
 import axios from 'axios'
+import BaseLayout from '../layouts/BaseLayout.vue'
 
 export default {
+  components: {
+    BaseLayout
+  },
   data() {
     return {
       name: '',

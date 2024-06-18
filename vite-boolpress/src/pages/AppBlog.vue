@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <BaseLayout>
+    <div class="container">
     <h2 class="text-2xl my-8">Ecco i nostri post</h2>
     <ul class="grid grid-cols-3 gap-4">
       <li v-for="post in posts" :key="post.id">
@@ -14,17 +15,21 @@
       </ul>
     </div>
   </div>
+  </BaseLayout>
+  
 </template>
 
 <script>
 import axios from 'axios'
 import TagsPills from '../components/TagsPills.vue'
 import PostCard from '../components/PostCard.vue'
+import BaseLayout from '../layouts/BaseLayout.vue'
 
 export default {
   components: {
     TagsPills,
-    PostCard
+    PostCard,
+    BaseLayout
   },
   data() {
     return {

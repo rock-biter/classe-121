@@ -1,37 +1,41 @@
 <template>
-  <div class="container py-10">
-    <button @click="goBack">
-      Indietro
-    </button>
-    <!-- <h1 class="text-xl text-amber-400">Pagine di dettaglio del post</h1>
-    <p>{{ $route.params.slug }}</p>
-    <p>Porp SLug: {{ slug }}</p> -->
-  </div>
+  <BaseLayout>
+    <div class="container py-10">
+      <button @click="goBack">
+        Indietro
+      </button>
+      <!-- <h1 class="text-xl text-amber-400">Pagine di dettaglio del post</h1>
+      <p>{{ $route.params.slug }}</p>
+      <p>Porp SLug: {{ slug }}</p> -->
+    </div>
 
-  <template v-if="post">
-    <div class="container">
-      <h1 class="text-2xl font-bold">{{ post.title }}</h1>
-      <p class="font-medium">{{ post.user.name }}</p>
-      <TagsPills :tags="post.tags" />
-      <p>
-        {{ post.category ? post.category.name : 'Nessuna categoria'}}
-      </p>
-    </div>
-    <div class="container py-6" v-html="post.content"></div>
-    <div class="container">
-      <p>{{ post.created_at }}</p>
-    </div>
-  </template>
+    <template v-if="post">
+      <div class="container">
+        <h1 class="text-2xl font-bold">{{ post.title }}</h1>
+        <p class="font-medium">{{ post.user.name }}</p>
+        <TagsPills :tags="post.tags" />
+        <p>
+          {{ post.category ? post.category.name : 'Nessuna categoria'}}
+        </p>
+      </div>
+      <div class="container py-6" v-html="post.content"></div>
+      <div class="container">
+        <p>{{ post.created_at }}</p>
+      </div>
+    </template>
+  </BaseLayout>
   
 </template>
 
 <script>
 import axios from 'axios'
 import TagsPills from '../components/TagsPills.vue'
+import BaseLayout from '../layouts/BaseLayout.vue'
 
 export default {
   components: {
-    TagsPills
+    TagsPills,
+    BaseLayout
   },
   props: {
     slug: {
