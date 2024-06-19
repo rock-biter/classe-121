@@ -33,7 +33,7 @@ class PostSeeder extends Seeder
         // }
         $user_ids = User::all()->pluck('id')->all(); // [1]
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 500; $i++) {
 
             $post = new Post();
 
@@ -47,6 +47,10 @@ class PostSeeder extends Seeder
 
             // fino a qui il post non ha ancora un id
             $post->save();
+
+            if (rand(1, 100) > 95) {
+                $post->delete();
+            }
 
             // prendendo un numero random di id di tags
             $random_tag_ids = $faker->randomElements($tag_ids, null);

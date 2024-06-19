@@ -19,13 +19,23 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $posts = Post::with(['category', 'category.posts'])->get(); // 3 query
-        // dd($posts);
+        if ($request->has('trash')) {
+            $posts = Post::onlyTrashed()->with(['category', 'category.posts'])->paginate(50);
+        } else {
+            $posts = Post::with(['category', 'category.posts'])->paginate(50);
+        }
 
-        return view('admin.posts.index', compact('posts'));
+        $trashed = Post::onlyTrashed()->count();
+        // dd($trashed);
+
+        // 3 query
+        // dd($posts);
+        // dd($results);
+
+        return view('admin.posts.index', compact('posts', 'trashed'));
     }
 
     /**
@@ -207,6 +217,32 @@ class PostController extends Controller
         $post->delete();
 
         return to_route('admin.posts.index');
+    }
+
+    public function restore($id)
+    {
+        // restore
+        // dd($id);
+        $post = Post::withTrashed()->find($id);
+
+        if ($post->trashed()) {
+            $post->restore();
+        }
+
+        return back();
+    }
+
+    public function forceDestroy($id)
+    {
+        // forceDelete
+        // dd($id);
+
+        $post = Post::withTrashed()->find($id);
+        if ($post->trashed()) {
+            $post->forceDelete();
+        }
+
+        return back();
     }
 
     public function toggleFavorite(Post $post)

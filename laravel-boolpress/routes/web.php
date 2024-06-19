@@ -37,6 +37,8 @@ Route::middleware(['auth', 'verified'])
         // CRUD POSTS
         Route::resource('posts', PostController::class);
         Route::post('/posts/{post}/favorite', [PostController::class, 'toggleFavorite'])->name('posts.toggleFavorite');
+        Route::delete('/posts/{post}/force', [PostController::class, 'forceDestroy'])->name('posts.forceDestroy');
+        Route::post('/posts/{post}/restore', [PostController::class, 'restore'])->name('posts.restore');
     });
 
 Route::middleware('auth')->group(function () {
